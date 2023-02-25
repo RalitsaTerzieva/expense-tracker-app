@@ -3,7 +3,7 @@
 {% load static %}
         
 {% block content %}
-    
+<div class='font-bold text-2xl pl-10 pt-4'>Add Expense ➕</div>
     <form method="POST" class='shadow-lg m-10 rounded-lg bg-yellow-200'>
         {% csrf_token %}
         <div class='form-container px-10 py-10 flex'>
@@ -36,15 +36,14 @@
             </div>
         </div>   
         </form>
-        <div class='font-bold text-3xl pl-10'>Expenses</div>
+        <div class='font-bold text-2xl pl-10'>Expenses 💰</div>
         <div class='shadow-lg m-10 rounded-lg divide-y'>
             <div class='expense-header flex flex-wrap space-x-40 py-5 px-20'>
-                <span>Name</span>
-                <span>Amount</span>
-                <span>Category</span>
-                <span>Date</span>
-                <span>Actions</span>
-                
+                <span class='text-xl font-semibold font-mono text-yellow-800'>Name</span>
+                <span class='text-xl font-semibold font-mono text-yellow-800'>Amount</span>
+                <span class='text-xl font-semibold font-mono text-yellow-800'>Category</span>
+                <span class='text-xl font-semibold font-mono text-yellow-800'>Date</span>
+                <span class='text-xl font-semibold font-mono text-yellow-800'>Actions</span>
             </div>
             {% for expense in expenses %}
             <div class='expense-row flex flex-wrap px-20 py-5'>
