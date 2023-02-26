@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView
 from .forms import ExpenseForm
 from .models import Expense
+from django.db.models import Sum
 
 
 
@@ -13,8 +14,9 @@ def index(request):
             expense.save()
     
     expenses = Expense.objects.all()
+    total_expenses = expenses.aggregate(Sum('amount'))
     expense_form = ExpenseForm()
-    return render(request,'trackerapp/index.html',{'expense_form':expense_form,'expenses':expenses})
+    return render(request,'trackerapp/index.html',{'expense_form':expense_form,'expenses':expenses,'total_expenses':total_expenses})
 
 
 def edit(request,id):
