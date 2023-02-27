@@ -1,0 +1,9 @@
+{% extends 'trackerapp/base.html' %}
+
+{% block content %}
+<form method='POST'>
+    {% csrf_token %}
+    {{expense_form}}
+</form>
+
+{% endblock %}
