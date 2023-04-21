@@ -1,4 +1,6 @@
 {% extends 'trackerapp/base.html' %}
+
+{% load static %}
         
 {% block content %}
     
@@ -36,22 +38,25 @@
         </form>
         <div class='font-bold text-3xl'>Expenses</div>
         <div class='shadow-lg m-10 rounded-lg divide-y'>
-            <div class='expense-header flex flex-wrap space-x-40 py-4'>
+            <div class='expense-header flex flex-wrap space-x-40 py-5 px-20'>
                 <span>Name</span>
                 <span>Amount</span>
                 <span>Category</span>
                 <span>Date</span>
-                <span>Edit</span>
-                <span>Delete</span>
+                <span>Actions</span>
+                
             </div>
             {% for expense in expenses %}
-            <div class='expense-row flex-wrap px-20 py-5'>
+            <div class='expense-row flex flex-wrap px-20 py-5'>
                 <span class='font-bold'>{{ expense.name }}</span>
                 <span class='font-bold'>${{ expense.amount|floatformat:"2g"}}</span>
                 <span class='font-bold'>{{ expense.category }}</span>
-                <span class='font-bold'>{{ expense.date }}</span>
-                <span class='font-bold'><a class='bg-yellow-500 text-white px-4 py-2' href='{% url "edit" expense.id %}'>Edit</a></span>
-                <span class='font-bold'><a class='bg-red-500 text-white px-4 py-2' href='{% url "expense_delete" expense.pk %}'>Delete</a></span>
+                <span class='font-bold '>{{ expense.date }}</span>
+                <div class="flex place-content-center gap-3">
+                    <span class='bg-green-500 p-2'><a href='{% url "edit" expense.id %}'><img class='w-5 h-5' src='{% static "trackerapp/images/edit.png" %}'></a></span>
+                    <span class='bg-red-500 p-2'><a href='{% url "expense_delete" expense.pk %}'><img class='w-5 h-5' src='{% static "trackerapp/images/delete.png" %}'></a></span>
+                </div>
+               
             </div>
             {% endfor %}
         </div>  
