@@ -85,5 +85,24 @@
                 </h1>
             </div>
         </div>
+
+        <div class='flex'>
+            <div class='w-1/2 shadow-lg m-10'>
+                <div class='flex flex-wrap space-x-40 font-bold px-20 py-5'>
+                    <span>Past 30 days sum expenses</span>
+                </div>
+                <hr/>
+                <div id='30-day-table'>
+                   {% for daily_sum in daily_sums %}
+                   <div class='flex flex-wrap px-20 py-5'>
+                    <span>{{ daily_sum.date }}</span>
+                   </div>
+                   <div class='flex flex-wrap px-20 py-5'>
+                    <span class='text-yellow-800'>${{ daily_sum.sum|intcomma }}</span>
+                   </div>
+                   {% endfor %}
+                </div>
+            </div>
+        </div>
         
 {% endblock %}
