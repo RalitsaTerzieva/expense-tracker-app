@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwind build trackerapp/static/trackerapp/src.css -o trackerapp/static/trackerapp/styles.css"
+    "build": "tailwind build -i trackerapp/static/trackerapp/src.css -o trackerapp/static/trackerapp/styles.css"
   },
   "keywords": [],
   "author": "",

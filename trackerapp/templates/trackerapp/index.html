@@ -1,9 +1,39 @@
 {% extends 'trackerapp/base.html' %}
         
 {% block content %}
-        <h1>Index page</h1>
-        <form method="POST">
-                {% csrf_token %}
-                {{ expense_form.as_p }}
+    <h1>Index page</h1>
+    <form method="POST" class='shadow-lg m-10 rounded-lg'>
+        {% csrf_token %}
+        <div class='form-container px-10 py-10 flex'>
+            <div class='mx-10'>
+                <div class='mb-5'>
+                    <label>Expense Name</label>
+                </div>
+                <div class='border'>
+                    {{ expense_form.name }}
+                </div>
+            </div>
+            <div class='mx-10'>
+                <div class='mb-5'>
+                    <label>Amount</label>
+                </div>
+                <div class='border'>
+                    {{ expense_form.amount }}
+                </div>
+            </div>
+            <div class='mx-10'>
+                <div class='mb-5'>
+                    <label>Category</label>
+                </div>
+                <div class='border'>
+                    {{ expense_form.category }}
+                </div>
+            </div>
+            <div class='mx-10 mt-8'>
+               <button class='bg-green-500 text-white px-5 py-2 rounded-lg font-bold'>Add</button>
+            </div>
+            
+        </div>
+                
         </form>
 {% endblock %}
