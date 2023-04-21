@@ -4,12 +4,12 @@
         
 {% block content %}
     
-    <form method="POST" class='shadow-lg m-10 rounded-lg'>
+    <form method="POST" class='shadow-lg m-10 rounded-lg bg-yellow-200'>
         {% csrf_token %}
         <div class='form-container px-10 py-10 flex'>
             <div class='mx-10'>
                 <div class='mb-5'>
-                    <label>Expense Name</label>
+                    <label class='font-semibold'>Expense Name</label>
                 </div>
                 <div class='border'>
                     {{ expense_form.name }}
@@ -17,7 +17,7 @@
             </div>
             <div class='mx-10'>
                 <div class='mb-5'>
-                    <label>Amount</label>
+                    <label class='font-semibold'>Amount</label>
                 </div>
                 <div class='border'>
                     {{ expense_form.amount }}
@@ -25,7 +25,7 @@
             </div>
             <div class='mx-10'>
                 <div class='mb-5'>
-                    <label>Category</label>
+                    <label class='font-semibold'>Category</label>
                 </div>
                 <div class='border'>
                     {{ expense_form.category }}
@@ -36,7 +36,7 @@
             </div>
         </div>   
         </form>
-        <div class='font-bold text-3xl'>Expenses</div>
+        <div class='font-bold text-3xl pl-10'>Expenses</div>
         <div class='shadow-lg m-10 rounded-lg divide-y'>
             <div class='expense-header flex flex-wrap space-x-40 py-5 px-20'>
                 <span>Name</span>
