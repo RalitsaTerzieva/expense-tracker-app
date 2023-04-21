@@ -2,12 +2,18 @@
 
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![Udemy](https://img.shields.io/badge/Udemy-A435F0?style=for-the-badge&logo=Udemy&logoColor=white)![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-You can use this custom simple Django based Expense Tracker application to learn how to create Django application with navbar, CRUD operations and Tailwindcss.
+You can use this custom simple Django based Expense Tracker application to learn how to create Django application with CRUD operations and Tailwindcss.
 
 There are the following expense functionalities:
     * Add ➕
     * Update ✏️
     * Delete ➖
+
+You will learn:
+    - Basic Django(models,views,templates and forms)
+    - CRUD operations with Django
+    - Tailwindcss
+    - Django humanize
 
 
 ## Installation
