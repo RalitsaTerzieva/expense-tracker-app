@@ -5,15 +5,17 @@
 You can use this custom simple Django based Expense Tracker application to learn how to create Django application with CRUD operations and Tailwindcss.
 
 There are the following expense functionalities:
-    * Add ➕
-    * Update ✏️
-    * Delete ➖
+
+* Add ➕
+* Update ✏️
+* Delete ➖
 
 You will learn:
-    - Basic Django(models,views,templates and forms)
-    - CRUD operations with Django
-    - Tailwindcss
-    - Django humanize
+
+- Basic Django(models,views,templates and forms)
+- CRUD operations with Django
+- Tailwindcss
+- Django humanize
 
 
 ## Installation
