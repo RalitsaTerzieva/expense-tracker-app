@@ -1,9 +1,10 @@
 {% extends 'trackerapp/base.html' %}
 
 {% block content %}
-<form method='POST'>
+<form method='POST' class=''>
     {% csrf_token %}
     {{expense_form}}
+    <button class='bg-yellow-500 text-white px-4 py-2' type='submit'>Submit</button>
 </form>
 
 {% endblock %}
