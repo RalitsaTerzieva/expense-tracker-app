@@ -1,0 +1,17 @@
+{% extends 'trackerapp/base.html' %}
+
+{% block content %}
+<form method="post" class=''>
+    {% csrf_token %}
+    <div class='m-10 shadow-lg'>
+        <div class='mb-8 p-7'>
+            <p class='text-xl'>Are you sure you want to delete "<span class='font-bold'>{{ object }}</span>"?</p>
+        </div>
+        <div class='m-8 p-7'>
+            <button type="submit" class='bg-red-500 text-white px-3 py-2'>Delete</button>
+        </div>
+    </div>
+    
+    
+</form>
+{% endblock %}

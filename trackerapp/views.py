@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views.generic.edit import DeleteView
 from .forms import ExpenseForm
 from .models import Expense
+
 
 
 def index(request):
@@ -26,3 +29,8 @@ def edit(request,id):
             return redirect('index')
   
     return render(request,'trackerapp/edit.html',{'expense_form':expense_form})
+
+
+class ExpenseDeleteView(DeleteView):
+    model = Expense
+    success_url = reverse_lazy("index")

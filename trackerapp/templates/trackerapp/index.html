@@ -1,7 +1,6 @@
 {% extends 'trackerapp/base.html' %}
         
 {% block content %}
-    <h1>Index page</h1>
     <form method="POST" class='shadow-lg m-10 rounded-lg'>
         {% csrf_token %}
         <div class='form-container px-10 py-10 flex'>
@@ -34,7 +33,7 @@
             </div>
         </div>   
         </form>
-        <div>Expenses</div>
+        <div class='font-bold text-3xl'>Expenses</div>
         <div class='shadow-lg m-10 rounded-lg divide-y'>
             <div class='expense-header flex flex-wrap space-x-40 py-4'>
                 <span>Name</span>
@@ -47,11 +46,11 @@
             {% for expense in expenses %}
             <div class='expense-row flex-wrap px-20 py-5'>
                 <span class='font-bold'>{{ expense.name }}</span>
-                <span class='font-bold'>{{ expense.amount }}</span>
+                <span class='font-bold'>${{ expense.amount }}</span>
                 <span class='font-bold'>{{ expense.category }}</span>
                 <span class='font-bold'>{{ expense.date }}</span>
                 <span class='font-bold'><a class='bg-yellow-500 text-white px-4 py-2' href='{% url "edit" expense.id %}'>Edit</a></span>
-                <span class='font-bold'><a class='bg-red-500 text-white px-4 py-2' href=''>Delete</a></span>
+                <span class='font-bold'><a class='bg-red-500 text-white px-4 py-2' href='{% url "expense_delete" expense.pk %}'>Delete</a></span>
             </div>
             {% endfor %}
         </div>  
