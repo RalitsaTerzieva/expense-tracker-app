@@ -46,7 +46,7 @@
             {% for expense in expenses %}
             <div class='expense-row flex-wrap px-20 py-5'>
                 <span class='font-bold'>{{ expense.name }}</span>
-                <span class='font-bold'>${{ expense.amount }}</span>
+                <span class='font-bold'>${{ expense.amount|floatformat:"2g"}}</span>
                 <span class='font-bold'>{{ expense.category }}</span>
                 <span class='font-bold'>{{ expense.date }}</span>
                 <span class='font-bold'><a class='bg-yellow-500 text-white px-4 py-2' href='{% url "edit" expense.id %}'>Edit</a></span>
