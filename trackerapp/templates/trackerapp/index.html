@@ -98,7 +98,7 @@
                     <span>{{ daily_sum.date }}</span>
                    </div>
                    <div class='flex flex-wrap px-20 py-5'>
-                    <span class='text-yellow-800'>${{ daily_sum.sum|intcomma }}</span>
+                    <span class='text-yellow-800'>${{ daily_sum.sum }}</span>
                    </div>
                    {% endfor %}
                 </div>
@@ -108,17 +108,129 @@
                     <span>Expenses by category</span>
                 </div>
                 <hr/>
-                <div id='30-day-table'>
+                <div id='cat-sum-table'>
                    {% for categorical_sum in categorical_sums %}
                    <div class='flex flex-wrap px-20 py-5'>
                     <span class='font-semibold'>{{ categorical_sum.category }}</span>
                    </div>
                    <div class='flex flex-wrap px-20 py-5'>
-                    <span class='text-yellow-800 font-semibold'>${{ categorical_sum.sum|intcomma }}</span>
+                    <span class='text-yellow-800 font-semibold'>${{ categorical_sum.sum }}</span>
                    </div>
                    {% endfor %}
                 </div>
             </div>
         </div>
-        
+
+        <div class='flex'>
+            <div class='w-1/2 shadow-lg ml-10'>
+                <h1 class='m-10'>Daily Expense Sum</h1>
+                <canvas id="myChart" class='m-10'></canvas>
+            </div>
+            <div class='w-1/2 shadow-lg ml-10'>
+                <h1 class='m-10'>Expenses spread accross categories</h1>
+                <canvas id="myChart1" class='m-10'></canvas>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js" integrity="sha512-dnUg2JxjlVoXHVdSMWDYm2Y5xcIrJg1N+juOuRi0yLVkku/g26rwHwysJDAMwahaDfRpr1AxFz43ktuMPr/l1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            let categories = [];
+            let categories_sums = [];
+            const catSumDivs = document.getElementById('cat-sum-table').getElementsByTagName('div');
+     
+
+            for(i=0;i<catSumDivs.length;i++) {
+                if(i % 2 == 1){
+                    categories_sums.push(catSumDivs[i].innerText.replace('$',''))
+                } else {
+                    categories.push(catSumDivs[i].innerText);
+                }
+            }
+
+            
+            const ctx1 = document.getElementById('myChart1').getContext('2d');
+            const myChart1 = new Chart(ctx1, {
+                type: 'pie',
+                data: {
+                    labels: categories,
+                    datasets: [{
+                        label: '# of Votes',
+                        data: categories_sums,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            let dates = [];
+            let dates_sums = [];
+            const dateSumDivs = document.getElementById('30-day-table').getElementsByTagName('div');
+     
+
+            for(i=0;i<dateSumDivs.length;i++) {
+                if(i % 2 == 1){
+                    dates_sums.push(dateSumDivs[i].innerText.replace('$',''))
+                } else {
+                    dates.push(dateSumDivs[i].innerText);
+                }
+            }
+            console.log(dates_sums)
+
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: '# of Votes',
+                        data: dates_sums,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
 {% endblock %}
