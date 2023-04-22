@@ -103,6 +103,22 @@
                    {% endfor %}
                 </div>
             </div>
+            <div class='w-1/2 shadow-lg m-10'>
+                <div class='flex flex-wrap space-x-40 font-bold px-20 py-5'>
+                    <span>Expenses by category</span>
+                </div>
+                <hr/>
+                <div id='30-day-table'>
+                   {% for categorical_sum in categorical_sums %}
+                   <div class='flex flex-wrap px-20 py-5'>
+                    <span class='font-semibold'>{{ categorical_sum.category }}</span>
+                   </div>
+                   <div class='flex flex-wrap px-20 py-5'>
+                    <span class='text-yellow-800 font-semibold'>${{ categorical_sum.sum|intcomma }}</span>
+                   </div>
+                   {% endfor %}
+                </div>
+            </div>
         </div>
         
 {% endblock %}

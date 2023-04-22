@@ -31,6 +31,8 @@ def index(request):
     
     daily_sums = Expense.objects.filter().values('date').order_by('date').annotate(sum=Sum('amount'))
     
+    categorical_sums = Expense.objects.filter().values('category').order_by('category').annotate(sum=Sum('amount'))
+    
     expense_form = ExpenseForm()
     
     return render(request,'trackerapp/index.html',
@@ -40,7 +42,8 @@ def index(request):
                     'yearly_sum':yearly_sum,
                     'monthly_sum':monthly_sum,
                     'weekly_sum':weekly_sum,
-                    'daily_sums':daily_sums
+                    'daily_sums':daily_sums,
+                    'categorical_sums': categorical_sums
                     })
 
 
