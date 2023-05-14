@@ -2,20 +2,21 @@
 
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![Udemy](https://img.shields.io/badge/Udemy-A435F0?style=for-the-badge&logo=Udemy&logoColor=white)![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-You can use this custom simple Django based Expense Tracker application to learn how to create Django application with CRUD operations and Tailwindcss.
+Discover an awesome custom Django-based Expense Tracker application designed for learning how to create sleek web apps with Django and Tailwind CSS.
 
-There are the following expense functionalities:
+Experience the following expense functionalities:
 
-* Add ➕
-* Update ✏️
-* Delete ➖
+- Add new expenses ➕
+- Update existing expenses ✏️
+- Delete unwanted expenses ➖
 
-You will learn:
+Unlock your learning potential with:
 
-- Basic Django(models,views,templates and forms)
-- CRUD operations with Django
-- Tailwindcss
-- Django humanize
+- Fundamental Django concepts (models, views, templates, and forms)
+- Mastering CRUD operations in Django
+- Crafting stunning user interfaces with Tailwind CSS
+- Enhancing your app with Django Humanize for better user experience.
+- Embark on a journey to become a Django expert while managing your expenses in style!
 
 
 ## Installation
